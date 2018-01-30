@@ -3,10 +3,17 @@ page-bienvenue {
     #bienvenue{
         background: color($colors, primary);
 
-        h1{
-            font-size: 60px;
+        #titre{
+            font-size: 45px;
             margin-top: 50px;
             font-family: Cabin; 
+            color: white;
+        }
+
+        #slogan{
+            font-size: 15px;
+            font-family: Open Sans; 
+            color: white;
         }
 
         #btndiv {
@@ -18,15 +25,13 @@ page-bienvenue {
         }
 
         video {
+            margin: -17px;
             position: fixed;
-            top: 50%;
-            left: 50%;
             min-width: 100%;
             min-height: 100%;
             width: auto;
             height: auto;
             z-index: -100;
-            transform: translateX(-50%) translateY(-50);
         }
     }
 }
