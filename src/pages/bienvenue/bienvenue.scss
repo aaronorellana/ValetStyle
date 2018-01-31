@@ -1,7 +1,16 @@
 page-bienvenue {
 
     #bienvenue{
-        background: color($colors, primary);
+        background: url("../assets/imgs/back.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: fixed;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
 
         #titre{
             font-size: 45px;
@@ -11,6 +20,7 @@ page-bienvenue {
         }
 
         #slogan{
+            text-transform: capitalize;
             font-size: 15px;
             font-family: Open Sans; 
             color: white;
@@ -22,16 +32,6 @@ page-bienvenue {
 
         button {
             margin-bottom: 10px;
-        }
-
-        video {
-            margin: -17px;
-            position: fixed;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -100;
         }
     }
 }
