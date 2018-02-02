@@ -6,13 +6,18 @@ page-bienvenue {
         background-size: cover;
         background-position: center;
         position: fixed;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
+        width: 100vw;
+        height: 100vh;
         z-index: -100;
 
+        #logo {
+            width: 20px;
+            height: 20px;
+            position: relative;
+        }
+
         #titre{
+            text-align: center;
             font-size: 45px;
             margin-top: 50px;
             font-family: Cabin; 
@@ -20,10 +25,11 @@ page-bienvenue {
         }
 
         #slogan{
-            text-transform: capitalize;
-            font-size: 15px;
+            text-align: center;
+            font-size: 25px;
             font-family: Open Sans; 
             color: white;
+            margin-bottom: 250px;
         }
 
         #btndiv {
