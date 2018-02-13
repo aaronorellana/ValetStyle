@@ -6,16 +6,10 @@
 -->
 <ion-content padding id="bienvenue">
 
-  <div id="logo">
-    <img src="/assets/imgs/logo-02.png">
-  </div>
+  <ion-card id="btnframe">
+    <button ion-button block round outline color="primary" (click)="signup()">S'inscrire</button>
+    <button ion-button block round outline color="primary" (click)="login()">S'identifier</button>
+    <div class="forgotPwd" text-center (click)="forgotPwd()">Mot de passe oublié</div>
+  </ion-card>
 
-  <h1 id="titre">Bienvenue à Valet Style</h1>
-  <div id="slogan">Change ton style dès maintenant !</div>
-
-  <div id="btndiv">
-    <button ion-button block round outline color="light" (click)="signup()">SignUp</button>
-    <button ion-button block round outline color="light" (click)="login()">Login</button>
-  </div>
-  
 </ion-content>

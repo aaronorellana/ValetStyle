@@ -1,24 +1,28 @@
 page-bienvenue {
 
     #bienvenue{
-        background: url("../assets/imgs/back.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        z-index: -100;
+        background: #da4453; /* fallback for old browsers */
+        background: -webkit-linear-gradient(#f67280, #6c5b7b); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(#f67280, #6c5b7b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        //background: url("../assets/imgs/back.jpg");
+        //background-repeat: no-repeat;
+        //background-size: cover;
+        //background-position: center;
+        //position: fixed;
+        //width: 100vw;
+        //height: 100vh;
+        //z-index: -100;
 
         #logo {
-            width: 20px;
-            height: 20px;
-            position: relative;
+            height: 20vh;
+            width: 30vw;
+            margin: auto;
+            display: block;
         }
 
         #titre{
             text-align: center;
-            font-size: 45px;
+            font-size: 30px;
             margin-top: 50px;
             font-family: Cabin; 
             color: white;
@@ -26,18 +30,40 @@ page-bienvenue {
 
         #slogan{
             text-align: center;
-            font-size: 25px;
+            font-size: 20px;
             font-family: Open Sans; 
             color: white;
-            margin-bottom: 250px;
         }
 
-        #btndiv {
-            margin-top: 40px;
+        #btnframe {
+            padding: 15px;
+            border-radius: 10px;
+            border: #6c5b7b solid 0.5px;
         }
 
         button {
             margin-bottom: 10px;
+        }
+
+        button:hover {
+            margin-bottom: 10px;
+            color: white;
+            border: none;
+            background-color: map-get($colors, darkpurple);
+        }
+
+        .forgotPwd{
+            text-decoration: underline;
+            margin-top:20px;
+            color: map-get($colors, primary);;
+            font-size: 14px;
+        }
+
+        .forgotPwd:active {
+            text-decoration: underline;
+            margin-top:20px;
+            color: map-get($colors, darkpurple);
+            font-size: 14px;
         }
     }
 }
