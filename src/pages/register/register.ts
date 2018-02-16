@@ -49,9 +49,9 @@ export class RegisterPage {
     console.log(newUser);
     this.loadingController.dismiss();
     let alert = this.alertCtrl.create({
-    title: 'Success',
-    subTitle: 'User Registered',
-    buttons: ['Dismiss']
+    title: 'Super',
+    subTitle: 'Utilisateur enregistrer',
+    buttons: ['Fermer']
     });
     alert.present();
     this.nav.push(LoginPage);

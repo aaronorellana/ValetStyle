@@ -6,8 +6,7 @@
     <img src="/assets/imgs/logo-02.png">
   </div>
 
-  <div>
-    <p id="titre">ValetStyle</p>
+  <div id="txtApp">
     <p id="slogan">Une application à la mode.</p>
   </div>
 
@@ -15,8 +14,8 @@
   <form [formGroup]="loginForm" (ngSubmit)="loginUser($event)" novalidate>
 
     <ion-item>
-      <ion-label stacked>Votre courriel</ion-label>
-      <ion-input #email formControlName="email" type="email" placeholder="Votre Courriel" [class.invalid]="!loginForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+      <ion-label stacked>Courriel</ion-label>
+      <ion-input #email formControlName="email" type="email" placeholder="nom@domaine.com" [class.invalid]="!loginForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
     </ion-item>
 
     <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  && (emailChanged || submitAttempt)">
@@ -24,12 +23,12 @@
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Votre mot de passe</ion-label>
-      <ion-input #password formControlName="password" type="password" placeholder="Password" [class.invalid]="!loginForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
+      <ion-label stacked>Mot de passe</ion-label>
+      <ion-input #password formControlName="password" type="password" placeholder="mot de passe" [class.invalid]="!loginForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
     </ion-item>
 
     <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  && (passwordChanged || submitAttempt)">
-      <p>Votre mot de passe nécessite plus de 6 caractères.</p>
+      <p>Nécessite plus de 6 caractères.</p>
     </ion-item>
 
     <button class="btnLogin" ion-button block type="submit">Se Connecter</button>
@@ -41,5 +40,7 @@
       <button ion-button small clear (click)="goToSignup()">S'Enregistrer</button>
       <button ion-button small clear (click)="goToResetPassword()">Mot de passe oublié?</button>
   </div>
+
+  <div id="droitNom" align="center">Développer par Aaron Orellana</div>
   
 </ion-content>

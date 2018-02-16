@@ -1,50 +1,35 @@
-<ion-navbar primary *navbar>
-  <ion-title>
-    Register
-  </ion-title>
-</ion-navbar>
-
-
-<ion-content padding class="signup">
-  <ion-item>
-      <div align="center"><span class="header">Register</span><br/>
-      <div class="iconlogin"><ion-icon name="person-add"></ion-icon></div>
-      </div>
-    </ion-item>
+<ion-content padding id="signup">
+  
+    <div id="txtApp">
+      <p id="slogan">Créer un compte !</p>
+    </div>
 
   <form [formGroup]="signupForm" (ngSubmit)="signupUser($event)" novalidate>
      
     <ion-item>
-      <ion-label stacked>Email</ion-label>
-      <ion-input #email formControlName="email" type="email"
-        placeholder="Email"
-        [class.invalid]="!signupForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+      <ion-label stacked>Courriel</ion-label>
+      <ion-input #email formControlName="email" type="email" placeholder="nom@domaine.com" [class.invalid]="!signupForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
     </ion-item>
+
     <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && (emailChanged || submitAttempt)">
-      <p>Please enter a valid email.</p>
+      <p>S'il vous plaît entrer un courriel valide.</p>
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Password</ion-label>
-      <ion-input #password formControlName="password" type="password"
-        placeholder="Password"
-        [class.invalid]="!signupForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
-    </ion-item>
-    <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && (passwordChanged || submitAttempt)">
-      <p>Your password needs more than 6 characters.</p>
+      <ion-label stacked>Mot de passe</ion-label>
+      <ion-input #password formControlName="password" type="password" placeholder="mot de passe" [class.invalid]="!signupForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
     </ion-item>
 
-    <button ion-button block type="submit">
-      Create an Account
-    </button>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && (passwordChanged || submitAttempt)">
+      <p>Nécessite plus de 6 caractères.</p>
+    </ion-item>
+
+    <button ion-button block type="submit">Créer mon compte</button>
 
   </form>
-  <div align="center">
-    <button ion-button small clear (click)="goToLogin()">
-      Back
-    </button>
 
-    
-</div>
+  <div align="center">
+    <button ion-button small clear (click)="goToLogin()">Retour</button>
+  </div>
 
 </ion-content>
