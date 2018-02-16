@@ -31,7 +31,7 @@ export class SignupPage {
     alert(message: string) {
       this.alertCtrl.create({
         title: 'Info!',
-        subTitle: message,
+        subTitle: 'Il y a une erreur dans votre courriel.',
         buttons: ['OK']
       }).present();
     }
