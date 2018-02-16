@@ -1,49 +1,45 @@
-<ion-navbar primary *navbar>
-  <ion-header>
-      <ion-title>Firebase 3 Auth Starter</ion-title>
-  </ion-header>
-</ion-navbar>
+<ion-content padding id="login">
 
-<ion-content padding class="login">
-  <ion-item>
-  <div align="center"><span class="header">Firebase 3 Auth Starter</span><br/>
-  <ion-icon clear class="iconlogin" name="at"></ion-icon></div>
-</ion-item>
-  
+
+  <!-- Les divs du logo et des texte titre/slogan -->
+  <div id="logo">
+    <img src="/assets/imgs/logo-02.png">
+  </div>
+
+  <div>
+    <p id="titre">ValetStyle</p>
+    <p id="slogan">Une application à la mode.</p>
+  </div>
+
+<!-- Form avec les differents input et bouton-->
   <form [formGroup]="loginForm" (ngSubmit)="loginUser($event)" novalidate>
 
     <ion-item>
-      <ion-label stacked>Email</ion-label>
-      <ion-input #email formControlName="email" type="email"
-        placeholder="Email"
-        [class.invalid]="!loginForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+      <ion-label stacked>Votre courriel</ion-label>
+      <ion-input #email formControlName="email" type="email" placeholder="Votre Courriel" [class.invalid]="!loginForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
     </ion-item>
+
     <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  && (emailChanged || submitAttempt)">
-      <p>Please enter a valid email.</p>
+      <p>S'il vous plaît entrer un courriel valide.</p>
     </ion-item>
 
     <ion-item>
-      <ion-label stacked>Password</ion-label>
-      <ion-input #password formControlName="password" type="password"
-        placeholder="Password"
-        [class.invalid]="!loginForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
-    </ion-item>
-    <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  && (passwordChanged || submitAttempt)">
-      <p>Your password needs more than 6 characters.</p>
+      <ion-label stacked>Votre mot de passe</ion-label>
+      <ion-input #password formControlName="password" type="password" placeholder="Password" [class.invalid]="!loginForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
     </ion-item>
 
-    <button ion-button block type="submit">
-      Login
-    </button>
+    <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  && (passwordChanged || submitAttempt)">
+      <p>Votre mot de passe nécessite plus de 6 caractères.</p>
+    </ion-item>
+
+    <button class="btnLogin" ion-button block type="submit">Se Connecter</button>
 
   </form>
-<div align="center">
-    <button ion-button small clear (click)="goToSignup()">
-      Register
-    </button>
 
-    <button ion-button small clear (click)="goToResetPassword()">
-      Forgot Password?
-    </button>
-</div>
+  <!-- Div avec les boutons s'enregistrer et mot de passe oublie -->
+  <div align="center">
+      <button ion-button small clear (click)="goToSignup()">S'Enregistrer</button>
+      <button ion-button small clear (click)="goToResetPassword()">Mot de passe oublié?</button>
+  </div>
+  
 </ion-content>

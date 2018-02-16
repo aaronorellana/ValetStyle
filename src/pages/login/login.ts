@@ -33,7 +33,7 @@ export class LoginPage {
       function(user) {
         if(user){ 
         //console.log("User is logged in: " + JSON.stringify(user));
-        nav.push(HomePage);
+        nav.setRoot(HomePage);
       }
       }
     );
@@ -57,18 +57,18 @@ export class LoginPage {
   this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then((authData: any) => {
     console.log(authData.uid);
     this.loadingController.dismiss();
-    this.nav.push(HomePage);
+    this.nav.setRoot(HomePage);
   }
   )
   .catch((error: any) => {
         if (error) {
           this.loadingController.dismiss();
           let alert = this.alertCtrl.create({
-              message: error.code,
+              message: "Problème avec l'authentification.",
               buttons: [
                 {
                   text: "Ok",
-                  role: 'cancel'
+                  role: 'Annuler'
                 }
               ]
             });
