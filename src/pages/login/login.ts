@@ -29,11 +29,6 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  /* Méthode pour aller ver la page désiré 
-  home() {
-    this.navCtrl.push(TabsPage);
-  }
-  */
  alert(message: string) {
   this.alertCtrl.create({
     title: 'Info!',
