@@ -15,6 +15,18 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { AngularFireModule } from 'angularfire2';
+
+
+const firebaseAuth = {
+  apiKey: "AIzaSyA-XA6GC8FSl6lCG0G4wV5xZQz5uZ3xqUc",
+  authDomain: "valetstyle-ec971.firebaseapp.com",
+  databaseURL: "https://valetstyle-ec971.firebaseio.com",
+  projectId: "valetstyle-ec971",
+  storageBucket: "valetstyle-ec971.appspot.com",
+  messagingSenderId: "977489922962"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -29,6 +41,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseAuth)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
