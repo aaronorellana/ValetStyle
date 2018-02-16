@@ -1,9 +1,12 @@
 <ion-content padding id="signup">
   
+  <!-- Titre -->
     <div id="txtApp">
       <p id="slogan">Créer un compte !</p>
     </div>
 
+
+  <!-- Form avec les inputs et boutons -->
   <form [formGroup]="signupForm" (ngSubmit)="signupUser($event)" novalidate>
      
     <ion-item>
@@ -24,10 +27,12 @@
       <p>Nécessite plus de 6 caractères.</p>
     </ion-item>
 
+    <!-- Btn Creer dans la form -->
     <button ion-button block type="submit">Créer mon compte</button>
 
   </form>
 
+  <!-- Btn Retour -->
   <div align="center">
     <button ion-button small clear (click)="goToLogin()">Retour</button>
   </div>

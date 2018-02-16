@@ -58,9 +58,9 @@ export class ForgotPage {
   this.authData.resetPassword(this.resetPasswordForm.value.email);
     this.loadingController.dismiss(); 
     let alert = this.alertCtrl.create({
-    title: 'Success',
-    subTitle: 'Password reset link sent',
-    buttons: ['Dismiss']
+    title: 'Super',
+    subTitle: 'Le lien pour la réinitialisation à été envoyé !',
+    buttons: ['Fermer']
     });
     alert.present();
     this.nav.push(LoginPage);

@@ -1,15 +1,61 @@
-.reset-password form {
-  margin-bottom: 32px;
+page-forgot{
+  
+  #reset{
+    // Background Couleur
+    background: #da4453; /* fallback for old browsers */
+    background: -webkit-linear-gradient(#f67280, #6c5b7b); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(#f67280, #6c5b7b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    #txtApp {
+      margin-top: 60px;
+      margin-bottom: 40px;
+    }
+
+    #slogan{
+      text-align: center;
+      font-size: 25px;
+      font-family: Open Sans; 
+      color: white;
+    }
+
+
+    // Margin bottom de la form
+    form {
+      margin-bottom: 32px;
+      padding: 5px;
+      background-color: rgb(255, 255, 255);
+    }
+
+    // Margin top du bouton se connecter
+    form button {
+      margin-top: 20px;
+    }
+
+    form .invalid {
+      border-bottom: 1px solid #FF6153;
+    }
+
+    form .error-message .item-inner {
+      border-bottom: 0 !important;
+    }
+
+    // PLACEHOLDER STYLE
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: map-get($colors, darkpurple);
+      font-size: 10px;
+      opacity: 0.4;
+    }
+
+    // STYLE DU LABEL DES INPUTS
+    ion-label {
+      color: map-get($colors, darkpurple);
+      font-size: 12pt;
+    }
+
+    // Bouton Login
+    .btnRegister:hover {
+      background-color: map-get($colors, darkpurple);
+    }
+
+  }// Fin 
 }
-
-.reset-password form button {
-  margin-top: 20px;
-}
-
-.reset-password form .invalid {
-    border-bottom: 1px solid #FF6153;
-  }
-
-.reset-passwordlogin form .error-message .item-inner {
-    border-bottom: 0 !important;
-  }
