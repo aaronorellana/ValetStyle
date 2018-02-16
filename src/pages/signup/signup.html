@@ -5,14 +5,31 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>signup</ion-title>
+    <ion-title>
+      Créer un compte
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
+  
+  <ion-list>
+
+  <ion-item>
+    <ion-label floating>Nom d'utilisateur</ion-label>
+    <ion-input type="text" #username></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Mot de passe</ion-label>
+    <ion-input type="password" #password></ion-input>
+  </ion-item>
+  
+</ion-list>
+
+<div padding>
+  <button block ion-button (click)="registerUser()" item-left>S'Enregistrer</button>
+</div>
 
 </ion-content>
