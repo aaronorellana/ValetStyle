@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { NavController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -8,10 +7,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class HomePage {
 
-  email: string;
+  constructor(public navCtrl: NavController) {
 
-  constructor(private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
- 	this.email = fire.auth.currentUser.email;
   }
 
 }
