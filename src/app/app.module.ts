@@ -8,6 +8,9 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ForgotPage } from '../pages/forgot/forgot';
 import { RegisterPage } from '../pages/register/register';
+import { VetementsPage } from '../pages/vetements/vetements';
+import { ContactPage } from '../pages/contact/contact';
+import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -39,7 +42,10 @@ export const firebaseConfig = {
     HomePage,
     LoginPage,
     ForgotPage,
-    RegisterPage
+    RegisterPage,
+    VetementsPage,
+    ContactPage,
+    TabsPage
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,7 +53,10 @@ export const firebaseConfig = {
     HomePage,
     LoginPage,
     ForgotPage,
-    RegisterPage
+    RegisterPage,
+    VetementsPage,
+    ContactPage,
+    TabsPage
   ],
   providers: [
     StatusBar,

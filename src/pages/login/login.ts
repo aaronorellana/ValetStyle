@@ -1,11 +1,13 @@
-import {NavController, AlertController, LoadingController} from 'ionic-angular';
+import {NavController, AlertController, LoadingController, Tabs} from 'ionic-angular';
 import {Component} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import {Auth} from '../../providers/auth/auth';
+import { AngularFireAuth } from 'angularfire2/auth';
+
 import {RegisterPage} from '../register/register';
 import {ForgotPage} from '../forgot/forgot';
 import {HomePage} from '../home/home';
-import { AngularFireAuth } from 'angularfire2/auth';
+import {TabsPage} from '../tabs/tabs';
 
 @Component({
   selector: 'page-login',
@@ -33,7 +35,7 @@ export class LoginPage {
       function(user) {
         if(user){ 
         //console.log("User is logged in: " + JSON.stringify(user));
-        nav.setRoot(HomePage);
+        nav.setRoot(TabsPage);
       }
       }
     );
@@ -57,7 +59,7 @@ export class LoginPage {
   this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then((authData: any) => {
     console.log(authData.uid);
     this.loadingController.dismiss();
-    this.nav.setRoot(HomePage);
+    this.nav.setRoot(TabsPage);
   }
   )
   .catch((error: any) => {
