@@ -3,13 +3,16 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { BienvenuePage } from '../pages/bienvenue/bienvenue';
+
+//Pages
+import { LoginPage } from '../pages/login/login';
 
 @Component({
-  templateUrl: 'app.html'
+  template: `<ion-nav [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
-  rootPage:any = BienvenuePage;
+  
+  rootPage = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -19,4 +22,6 @@ export class MyApp {
       splashScreen.hide();
     });
   }
+  
+
 }

@@ -1,25 +1,23 @@
-import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+
+import { NgModule } from '@angular/core';
+import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { BienvenuePage } from '../pages/bienvenue/bienvenue';
-import { SignupPage } from '../pages/signup/signup';
-import { LoginPage } from '../pages/login/login';
-
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
+import { ForgotPage } from '../pages/forgot/forgot';
+import { RegisterPage } from '../pages/register/register';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Auth } from '../providers/auth/auth';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-
-const firebaseAuth = {
+// Code de FireBase
+export const firebaseConfig = {
   apiKey: "AIzaSyA-XA6GC8FSl6lCG0G4wV5xZQz5uZ3xqUc",
   authDomain: "valetstyle-ec971.firebaseapp.com",
   databaseURL: "https://valetstyle-ec971.firebaseio.com",
@@ -28,38 +26,33 @@ const firebaseAuth = {
   messagingSenderId: "977489922962"
 };
 
+
 @NgModule({
-  declarations: [
-    MyApp,
-    BienvenuePage,
-    SignupPage,
-    LoginPage,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
-  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseAuth),
-    AngularFireAuthModule // imports firebase/auth, only needed for auth features,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
+  ],
+  declarations: [
+    MyApp,
+    HomePage,
+    LoginPage,
+    ForgotPage,
+    RegisterPage
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    BienvenuePage,
-    SignupPage,
-    LoginPage,
-    AboutPage,
-    ContactPage,
     HomePage,
-    TabsPage
+    LoginPage,
+    ForgotPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Auth
   ]
 })
-export class AppModule {}
+export class AppModule { }

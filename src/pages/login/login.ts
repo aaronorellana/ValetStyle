@@ -1,55 +1,92 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-
+import {NavController, AlertController, LoadingController} from 'ionic-angular';
+import {Component} from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import {Auth} from '../../providers/auth/auth';
+import {RegisterPage} from '../register/register';
+import {ForgotPage} from '../forgot/forgot';
+import {HomePage} from '../home/home';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-import { TabsPage } from '../tabs/tabs';
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  public loginForm: any;
+  public loadingController;
+  emailChanged: boolean = false;
+  passwordChanged: boolean = false;
+  submitAttempt: boolean = false;
+  
 
-  @ViewChild('username') user;
-	@ViewChild('password') password;
+  constructor(public nav: NavController, public authData: Auth, public formBuilder: FormBuilder,
+    public alertCtrl: AlertController, public loadingCtrl: LoadingController, private auth: AngularFireAuth) {
+    this.nav = nav;
+    this.authData = authData;
 
-  constructor(private alertCtrl: AlertController, private fire:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams) {
+    this.loginForm = formBuilder.group({
+      email: ['', Validators.compose([Validators.minLength(6), Validators.required])],
+      password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
+    });
+    
+    auth.auth.onAuthStateChanged(
+      function(user) {
+        if(user){ 
+        //console.log("User is logged in: " + JSON.stringify(user));
+        nav.push(HomePage);
+      }
+      }
+    );
+  }
+  
+  elementChanged(input){
+    let field = input.inputControl.name;
+    this[field + "Changed"] = true;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  loginUser(event){
+  event.preventDefault();
+  this.submitAttempt = true;
+  if (!this.loginForm.valid){
+      console.log(this.loginForm.value);
+    } else {
+  this.loadingController = this.loadingCtrl.create({
+        dismissOnPageChange: true,
+      });
+  
+  this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then((authData: any) => {
+    console.log(authData.uid);
+    this.loadingController.dismiss();
+    this.nav.push(HomePage);
+  }
+  )
+  .catch((error: any) => {
+        if (error) {
+          this.loadingController.dismiss();
+          let alert = this.alertCtrl.create({
+              message: error.code,
+              buttons: [
+                {
+                  text: "Ok",
+                  role: 'cancel'
+                }
+              ]
+            });
+            alert.present();
+          console.log("Error:" + error.code);
+          
+        }
+      });
+    }
   }
 
- alert(message: string) {
-  this.alertCtrl.create({
-    title: 'Info!',
-    subTitle: 'Il y a une erreur dans votre courriel ou mot de passe.',
-    buttons: ['OK']
-  }).present();
-}
+  goToSignup(){
+    this.nav.push(RegisterPage);
+  
+  }
 
-signInUser() {
-  this.fire.auth.signInWithEmailAndPassword(this.user.value, this.password.value)
-  .then( data => {
-    console.log('Informations recues', this.fire.auth.currentUser);
-    this.alert('Super, Vous êtes connecter !');
-    this.navCtrl.setRoot(TabsPage);
-    // user est connecter
-  })
-  .catch( error => {
-    console.log('il y a une erreur', error);
-    this.alert(error.message);
-  })
-  console.log('Il est connecter', this.user.value, this.password.value);
-}
+  goToResetPassword(){
+  this.nav.push(ForgotPage);
+  }
 
 }
