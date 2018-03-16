@@ -19,6 +19,8 @@ import { Auth } from '../providers/auth/auth';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { Camera } from '@ionic-native/camera';
+
 // Code de FireBase
 export const firebaseConfig = {
   apiKey: "AIzaSyA-XA6GC8FSl6lCG0G4wV5xZQz5uZ3xqUc",
@@ -61,7 +63,8 @@ export const firebaseConfig = {
   providers: [
     StatusBar,
     SplashScreen,
-    Auth
+    Auth,
+    Camera
   ]
 })
 export class AppModule { }
