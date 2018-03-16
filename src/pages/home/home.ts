@@ -17,17 +17,21 @@ export class HomePage {
     this.authData = authData;
   }
 
-  // Fonction pour l'appel de la camera
+  // Fonction async pour l'appel de la camera
   async takePicture(){
 
     try {
       // Les Options de la Camera
       const options: CameraOptions = {
-        quality: 100,
+        quality: 75, // Résolution de l'image.
+        allowEdit: true, // Condition qui laisse que l'utilisateur puisse modifier l'image avant de l'envoiyer.
         destinationType: this.camera.DestinationType.DATA_URL,
-        encodingType: this.camera.EncodingType.JPEG,
+        encodingType: this.camera.EncodingType.JPEG, // Format JPEG.
         mediaType: this.camera.MediaType.PICTURE,
-        correctOrientation: true
+        targetWidth: 500, // Taille de largeur de l'image envoyé.
+        targetHeight: 500, // Taille de l'hauteur de l'image envoyé.
+        saveToPhotoAlbum: true, // Permet de sauvegarder l'image prisse dans l'album du cell.
+        correctOrientation: true // Fait la correction automatique de la foto dans le serveur.
       }
 
       const result = await this.camera.getPicture(options);
