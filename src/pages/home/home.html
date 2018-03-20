@@ -1,11 +1,12 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Home</ion-title>
-    <button ion-button small clear (click)="logOut()">Logout</button>
+    <button id="btnOut" ion-button small clear (click)="logOut()"><ion-icon name="log-out"></ion-icon></button>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding class="home">
-  <h2>Welcome to Firebase 3 Auth Starter!</h2>
-  <button ion-button (click)='takePicture()'>Prendre une foto</button>
+
+  <button id="btnPhoto" ion-button (click)='takePicture()'><ion-icon name="camera"></ion-icon></button>
+
 </ion-content>
