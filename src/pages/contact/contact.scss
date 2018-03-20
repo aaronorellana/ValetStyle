@@ -1,3 +1,20 @@
 page-contact {
 
+    .contacter {
+
+        a {
+            text-decoration: none;
+            color: map-get($colors, darkpurple);
+        }
+
+        .sizeIcon {
+            font-size: 20px;
+            color: map-get($colors, primary);
+        }
+
+        ion-label {
+            font-weight: bold;
+        }
+    }
+
 }
